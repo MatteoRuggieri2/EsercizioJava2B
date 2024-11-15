@@ -13,13 +13,11 @@ public class Calculator {
 		Scanner in = new Scanner(System.in);
 
 		// Leggo e salvo il primo valore
-		System.out.println("Inserisci il primo numero intero: (premi enter per confermare)");
-		int num1 = in.nextInt();
+		int num1 = getValidInteger(in, "Inserisci il primo numero intero: (premi enter per confermare)");
 		System.out.println("Primo numero: " + num1);
 
 		// Leggo e salvo il secondo valore
-		System.out.println("Inserisci il secondo numero intero: (premi enter per confermare)");
-		int num2 = in.nextInt();
+		int num2 = getValidInteger(in, "Inserisci il secondo numero intero: (premi enter per confermare)");
 		System.out.println("Secondo numero: " + num2);
 
 		// Chiudo lo scanner
@@ -33,6 +31,23 @@ public class Calculator {
 
 	}
 	
+	/* Questo metodo ha il compito di richiedere un imput intero.
+	 * Se ciò che viene fornito dall'utente non è di tipo int verrà
+	 * richiesto all'infinito di inserire un dato di tipo int. */
+	public static int getValidInteger(Scanner in, String prompt) {
+		
+		String errorMessage = "Input non valido. Per favore, inserisci un numero intero.";
+		
+		while(true) {
+			System.out.println(prompt);
+			if (in.hasNextInt()) {
+				return in.nextInt();
+			} else {
+				System.out.println(errorMessage);
+				in.next(); // Consuma il token non valido
+			}
+		}
+	}
 
 	public static int sum(int num1, int num2) {
 		return num1 + num2;
