@@ -26,8 +26,13 @@ public class Calculator {
 		System.out.println("Somma: " + sum(num1, num2));
 		System.out.println("Sottrazione: " + sub(num1, num2));
 		System.out.println("Moltiplicazione: " + mult(num1, num2));
-		System.out.println("Divisione: " + div(num1, num2));
-		System.out.println("Resto: " + mod(num1, num2));
+		
+		if (num2 != 0) {
+			System.out.println("Divisione: " + div(num1, num2));
+			System.out.println("Resto: " + mod(num1, num2));			
+		} else {
+			System.out.println("Divisione e resto non calcolabili: divisione per zero!");
+		}
 
 	}
 	
